@@ -1,0 +1,2 @@
+#holberton responsive design directory
+in this directory we will have the possibiliti to create a web pagee that is responsive in different devices starting from mobile and ending with the large device that is laptop
