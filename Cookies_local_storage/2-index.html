@@ -49,9 +49,9 @@
         document.getElementById("showCookies").addEventListener("click", showCookies)
 
         function showCookies() {
-            let para = document.createElement("p");
-            para.innerHTML = "Cookie: " + document.cookie;
-            document.body.appendChild(para);
+            let before = document.createElement("p");
+            before.innerHTML = "Cookie: " + document.cookie;
+            document.body.appendChild(before);
         }
         function getCookie(data) {
             return Object.values(data).map((el, i) => {

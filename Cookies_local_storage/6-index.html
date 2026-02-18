@@ -30,9 +30,9 @@
             document.body.appendChild(ul);
 
             for (let i = 0; i < availableItems.length; i++) {
-                const li = document.createElement("li");
-                li.textContent = availableItems[i];
-                li.addEventListener("click", function () {
+                const list = document.createElement("li");
+                list.textContent = availableItems[i];
+                list.addEventListener("click", function () {
                     addItemToCart(availableItems[i]);
                 });
                 ul.appendChild(li);
