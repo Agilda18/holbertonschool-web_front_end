@@ -39,26 +39,30 @@
             event.preventDefault();
             const firstname = document.getElementById("name").value;
             const email = document.getElementById("email").value;
-            const date = new Date();
-            date.setDate(date.getDate() + 10);
-            const expire = date.toUTCString();
-
-            document.cookie = `firstname=${firstname}; email=${email}; expires= ${expire}; }`;
+            document.cookie = `firstname=${firstname}`;
+            document.cookie = `email=${email}`;
         }
 
         document.getElementById("showCookies").addEventListener("click", showCookies)
 
         function showCookies() {
-            let before = document.createElement("p");
-            before.innerHTML = "Cookie: " + document.cookie;
-            document.body.appendChild(before);
+            const pTagHtml = document.createElement("p");
+            const email = getCookie("email");
+            const firstname = getCookie("firstname");
+            pTagHtml.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+            document.body.appendChild(pTagHtml);
         }
-        function getCookie(data) {
-            return Object.values(data).map((el, i) => {
-                return el.length < 1 ? "empty" : el
-            })
+
+        function getCookie(name) {
+            const cookies = document.cookie ? document.cookie.split(";") : [];
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(`${name}=`)) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return "";
         }
     </script>
 </body>
-
 </html>

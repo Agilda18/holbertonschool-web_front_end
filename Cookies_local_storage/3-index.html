@@ -31,7 +31,7 @@
         </form>
     </div>
 
-    <script>
+   <script>
         document.getElementById("submitForm").addEventListener("submit", function (event) {
             event.preventDefault();
             document.cookie = `firstname=${document.getElementById("name").value}`;
@@ -47,8 +47,10 @@
 
         function showForm() {
             document.getElementById("loginForm").style.display = "block";
-            const greeting = document.getElementById("welcome");
-            if (greeting) greeting.remove();
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            const welcome = document.getElementById("welcome");
+            if (welcome) welcome.remove();
         }
 
         function hideForm() {
